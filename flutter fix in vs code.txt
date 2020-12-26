@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+
+
+
+
+
+FOR FLUTTER DOCTOR ERRORS:
+
+flutter upgrade
+
+flutter config --android-studio-dir="C:\Program Files\Android\Android Studio"
+
+flutter doctor -v
+
+then if the issue still persistes then just shift to the beta channel and the upgrade flutter then it will fix it.
+
+flutter channel beta
+
+flutter upgrade
+
