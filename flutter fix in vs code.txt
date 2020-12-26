@@ -1,3 +1,46 @@
+CHANGING APP ICON:
+
+dev_dependencies: 
+  flutter_test:
+    sdk: flutter
+
+  flutter_launcher_icons: "^0.8.1"
+
+flutter_icons:
+  image_path: "icon/icon.png" 
+  android: true
+  ios: true
+
+
+$ flutter pub get
+
+$ flutter pub run flutter_launcher_icons:main
+
+
+
+
+
+
+
+
+
+
+SDK FIX:
+
+Configure > SDK Manager > in the top is the directory
+
+flutter config --android-sdk <path>
+
+
+
+
+FOR INTEGRATION TEST ERRORS:
+
+flutter upgrade
+
+flutter pub get
+
+flutter packages get
 
 
 
@@ -10,7 +53,8 @@
 
 
 
-FOR FLUTTER DOCTOR ERRORS:
+
+FOR FLUTTER DOCTOR FLUTTER AND DART NOT FOUND ERRORS:
 
 flutter upgrade
 
@@ -24,3 +68,17 @@ flutter channel beta
 
 flutter upgrade
 
+
+
+
+
+
+
+
+
+
+LICENSE ERROR:
+
+flutter doctor --android-licenses
+
+-Y
