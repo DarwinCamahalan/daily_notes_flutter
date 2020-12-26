@@ -1,2 +1,2 @@
-# daily_note_flutter
- A application for take down notes
+# Daily Note
+## A Mobile Application Built in Flutter
