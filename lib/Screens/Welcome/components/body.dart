@@ -17,8 +17,11 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "WELCOME TO DAILY NOTE",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              "Welcome to Daily Note",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: kPrimaryColor,
+                  fontSize: 20.0),
             ),
             SizedBox(height: size.height * 0.05),
             SvgPicture.asset(
