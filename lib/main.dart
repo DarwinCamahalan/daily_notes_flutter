@@ -1,36 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:daily_note/Screens/Welcome/welcome_screen.dart';
+import 'package:daily_note/constants.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'Daily Notes',
       theme: ThemeData(
-        primaryColor: Colors.orange[400],
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: Colors.white,
       ),
-      home: LoginScreen(),
-    );
-  }
-}
-
-class LoginScreen extends StatefulWidget {
-  @override
-  Login createState() => Login();
-}
-
-class Login extends State<LoginScreen> {
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Text('Hello'),
+      home: WelcomeScreen(),
     );
   }
 }
