@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:daily_note/Screens/Login/components/background.dart';
 import 'package:daily_note/Screens/Signup/signup_screen.dart';
+import 'package:daily_note/Screens/Signup/components/or_divider.dart';
+import 'package:daily_note/Screens/Signup/components/social_icon.dart';
 import 'package:daily_note/components/already_have_an_account_acheck.dart';
 import 'package:daily_note/components/rounded_button.dart';
 import 'package:daily_note/components/rounded_input_field.dart';
@@ -18,7 +20,7 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     var email;
     var pass;
-    var invalid = ""; // PROMPT
+
     return Background(
       child: SingleChildScrollView(
         child: Column(
@@ -41,11 +43,11 @@ class Body extends StatelessWidget {
                 pass = value;
               },
             ),
-            Text(invalid),
             RoundedButton(
               text: "LOGIN",
               press: () {
-                if (email == "admin" && pass == "123") {
+                if (email == "admin" && pass == "123" ||
+                    email == "lymie" && pass == "lymieapp") {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -55,12 +57,12 @@ class Body extends StatelessWidget {
                     ),
                   );
                 } else {
-                  invalid =
-                      "Invalid password or email."; // ADD AUTHENTICATION HERE
+                  // INSERT PROMPT HERE
+
                 }
               },
             ),
-            SizedBox(height: size.height * 0.03),
+            SizedBox(height: size.height * 0.01),
             AlreadyHaveAnAccountCheck(
               press: () {
                 Navigator.push(
@@ -73,6 +75,24 @@ class Body extends StatelessWidget {
                 );
               },
             ),
+            OrDivider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SocalIcon(
+                  iconSrc: "assets/icons/facebook.svg",
+                  press: () {},
+                ),
+                SocalIcon(
+                  iconSrc: "assets/icons/twitter.svg",
+                  press: () {},
+                ),
+                SocalIcon(
+                  iconSrc: "assets/icons/google-plus.svg",
+                  press: () {},
+                ),
+              ],
+            )
           ],
         ),
       ),

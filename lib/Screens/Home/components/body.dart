@@ -21,9 +21,9 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             'Dashboard',
-            style: GoogleFonts.ramabhadra(
+            style: GoogleFonts.lato(
                 color: Colors.white,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w900,
                 shadows: [
                   Shadow(
                       // bottomLeft

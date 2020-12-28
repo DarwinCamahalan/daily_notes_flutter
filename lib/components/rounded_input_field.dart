@@ -11,6 +11,8 @@ class RoundedInputField extends StatelessWidget {
     this.hintText,
     this.icon = Icons.person,
     this.onChanged,
+    String errorText,
+    TextEditingController controller,
   }) : super(key: key);
 
   @override
