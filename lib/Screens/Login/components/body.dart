@@ -16,6 +16,9 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    var email;
+    var pass;
+    var invalid = ""; // PROMPT
     return Background(
       child: SingleChildScrollView(
         child: Column(
@@ -29,22 +32,32 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.03),
             RoundedInputField(
               hintText: "Email",
-              onChanged: (value) {},
+              onChanged: (value) {
+                email = value;
+              },
             ),
             RoundedPasswordField(
-              onChanged: (value) {},
+              onChanged: (value) {
+                pass = value;
+              },
             ),
+            Text(invalid),
             RoundedButton(
               text: "LOGIN",
               press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return Home();
-                    },
-                  ),
-                );
+                if (email == "admin" && pass == "123") {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Home();
+                      },
+                    ),
+                  );
+                } else {
+                  invalid =
+                      "Invalid password or email."; // ADD AUTHENTICATION HERE
+                }
               },
             ),
             SizedBox(height: size.height * 0.03),
