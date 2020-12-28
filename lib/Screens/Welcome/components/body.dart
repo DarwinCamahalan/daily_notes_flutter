@@ -4,6 +4,7 @@ import 'package:daily_note/Screens/Signup/signup_screen.dart';
 import 'package:daily_note/Screens/Welcome/components/background.dart';
 import 'package:daily_note/components/rounded_button.dart';
 import 'package:daily_note/constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
@@ -18,10 +19,10 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Text(
               "Welcome to Daily Note",
-              style: TextStyle(
+              style: GoogleFonts.lobsterTwo(
                   fontWeight: FontWeight.bold,
                   color: kPrimaryColor,
-                  fontSize: 20.0),
+                  fontSize: 30.0),
             ),
             SizedBox(height: size.height * 0.05),
             SvgPicture.asset(

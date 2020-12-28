@@ -5,7 +5,7 @@ import 'package:daily_note/components/already_have_an_account_acheck.dart';
 import 'package:daily_note/components/rounded_button.dart';
 import 'package:daily_note/components/rounded_input_field.dart';
 import 'package:daily_note/components/rounded_password_field.dart';
-import 'package:daily_note/Screens/Welcome/welcome_screen.dart'; // REPLACE
+import 'package:daily_note/Screens/Home/home_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
@@ -41,7 +41,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WelcomeScreen(); // START HERE
+                      return Home();
                     },
                   ),
                 );
