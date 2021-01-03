@@ -34,6 +34,7 @@ class _AddBlogsState extends State<AddBlogs> {
     return Scaffold(
       backgroundColor: kPrimaryLightColor,
       appBar: AppBar(
+        centerTitle: true,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           widget.noteMode == BlogMode.Adding ? 'Add Blog' : 'Edit Blog',

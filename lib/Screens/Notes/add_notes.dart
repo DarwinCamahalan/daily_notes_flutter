@@ -34,6 +34,7 @@ class _AddNotesState extends State<AddNotes> {
     return Scaffold(
       backgroundColor: kPrimaryLightColor,
       appBar: AppBar(
+        centerTitle: true,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           widget.noteMode == NoteMode.Adding ? 'Add Note' : 'Edit Note',

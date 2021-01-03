@@ -32,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String _url = "https://owlbot.info/api/v4/dictionary/";
-  String _token = "YOUR API KEY HERE";
+  String _token = "38fea3dba014b224d6b67cf343c7678bae07c774";
 
   TextEditingController _controller = TextEditingController();
 
@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   return ListBody(
                     children: <Widget>[
                       Container(
-                        color: Colors.grey[300],
+                        color: Colors.orange[100],
                         child: ListTile(
                           leading: snapshot.data["definitions"][index]
                                       ["image_url"] ==

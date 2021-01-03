@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
             child: Container(
                 color: Colors.orangeAccent[100], child: new ListView())),
         appBar: AppBar(
+          centerTitle: true,
           iconTheme: IconThemeData(color: Colors.white),
           title: Text(
             'Dashboard',

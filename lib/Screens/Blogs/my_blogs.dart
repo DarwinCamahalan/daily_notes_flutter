@@ -30,6 +30,7 @@ class _MyBlogState extends State<MyBlogs> {
             child: Container(
                 color: Colors.orangeAccent[100], child: new ListView())),
         appBar: AppBar(
+          centerTitle: true,
           iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: kPrimaryColor,
           title: Text(
