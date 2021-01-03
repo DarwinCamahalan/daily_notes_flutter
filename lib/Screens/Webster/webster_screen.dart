@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   return ListBody(
                     children: <Widget>[
                       Container(
-                        color: Colors.orange[100],
+                        color: Colors.white,
                         child: ListTile(
                           leading: snapshot.data["definitions"][index]
                                       ["image_url"] ==

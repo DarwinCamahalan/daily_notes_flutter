@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class NoteInheritedWidget extends InheritedWidget {
   final notes = [
     {
-      'title': 'Add Notes',
+      'title': 'Instructions',
       'text': '• Tap the + Icon to Add Note.\n• Tap the Card to Edit Note.'
     },
   ];
