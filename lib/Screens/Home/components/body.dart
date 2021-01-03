@@ -1,3 +1,4 @@
+import 'package:daily_note/Screens/Blogs/main.dart';
 import 'package:daily_note/Screens/Notes/main.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_note/constants.dart';
@@ -20,29 +21,11 @@ class HomeScreen extends StatelessWidget {
             child: Container(
                 color: Colors.orangeAccent[100], child: new ListView())),
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           title: Text(
             'Dashboard',
             style: GoogleFonts.lato(
-                color: Colors.white,
-                fontWeight: FontWeight.w900,
-                shadows: [
-                  Shadow(
-                      // bottomLeft
-                      offset: Offset(-0.5, -0.5),
-                      color: Colors.black),
-                  Shadow(
-                      // bottomRight
-                      offset: Offset(0.5, -0.5),
-                      color: Colors.black),
-                  Shadow(
-                      // topRight
-                      offset: Offset(0.5, 1),
-                      color: Colors.black),
-                  Shadow(
-                      // topLeft
-                      offset: Offset(-0.5, 0.5),
-                      color: Colors.black),
-                ]),
+                color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
         body: Center(
@@ -68,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                       child: new MaterialButton(
                         minWidth: 100,
                         height: 150,
-                        color: new Color.fromRGBO(255, 70, 67, 0.5),
+                        color: new Color.fromRGBO(255, 70, 67, 0.7),
                         splashColor: Colors.orange,
                         textColor: Colors.black,
                         elevation: 8.0,
@@ -88,19 +71,19 @@ class HomeScreen extends StatelessWidget {
                                 shadows: [
                                   Shadow(
                                       // bottomLeft
-                                      offset: Offset(-0.5, -0.5),
+                                      offset: Offset(-0.3, -0.3),
                                       color: Colors.black),
                                   Shadow(
                                       // bottomRight
-                                      offset: Offset(0.5, -0.5),
+                                      offset: Offset(0.3, -0.3),
                                       color: Colors.black),
                                   Shadow(
                                       // topRight
-                                      offset: Offset(0.5, 1),
+                                      offset: Offset(0.3, 0.3),
                                       color: Colors.black),
                                   Shadow(
                                       // topLeft
-                                      offset: Offset(-0.5, 0.5),
+                                      offset: Offset(-0.3, 0.3),
                                       color: Colors.black),
                                 ]),
                           ),
@@ -126,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                         minWidth: 150,
                         height: 150,
                         textColor: Colors.black,
-                        color: new Color.fromRGBO(0, 255, 178, 0.51),
+                        color: new Color.fromRGBO(0, 255, 178, 0.7),
                         splashColor: Colors.orange,
                         elevation: 8.0,
                         child: Container(
@@ -142,29 +125,38 @@ class HomeScreen extends StatelessWidget {
                               style: GoogleFonts.viga(
                                   fontSize: 24.5,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.w900,
+                                  fontWeight: FontWeight.bold,
                                   shadows: [
                                     Shadow(
                                         // bottomLeft
-                                        offset: Offset(-0.5, -0.5),
+                                        offset: Offset(-0.3, -0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // bottomRight
-                                        offset: Offset(0.5, -0.5),
+                                        offset: Offset(0.3, -0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // topRight
-                                        offset: Offset(0.5, 1),
+                                        offset: Offset(0.3, 0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // topLeft
-                                        offset: Offset(-0.5, 0.5),
+                                        offset: Offset(-0.3, 0.3),
                                         color: Colors.black),
                                   ]),
                             ),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return BlogMainScreen();
+                              },
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -179,7 +171,7 @@ class HomeScreen extends StatelessWidget {
                       child: new MaterialButton(
                         minWidth: 150,
                         height: 150,
-                        color: new Color.fromRGBO(0, 221, 255, 0.5),
+                        color: new Color.fromRGBO(0, 221, 255, 0.7),
                         splashColor: Colors.orange,
                         textColor: Colors.black,
                         elevation: 8.0,
@@ -196,23 +188,23 @@ class HomeScreen extends StatelessWidget {
                               style: GoogleFonts.viga(
                                   fontSize: 27,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.w900,
+                                  fontWeight: FontWeight.bold,
                                   shadows: [
                                     Shadow(
                                         // bottomLeft
-                                        offset: Offset(-0.5, -0.5),
+                                        offset: Offset(-0.3, -0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // bottomRight
-                                        offset: Offset(0.5, -0.5),
+                                        offset: Offset(0.3, -0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // topRight
-                                        offset: Offset(0.5, 1),
+                                        offset: Offset(0.3, 0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // topLeft
-                                        offset: Offset(-0.5, 0.5),
+                                        offset: Offset(-0.3, 0.3),
                                         color: Colors.black),
                                   ]),
                             ),
@@ -229,7 +221,7 @@ class HomeScreen extends StatelessWidget {
                       child: new MaterialButton(
                         minWidth: 150,
                         height: 150,
-                        color: new Color.fromRGBO(255, 255, 69, 0.5),
+                        color: new Color.fromRGBO(255, 255, 69, 0.7),
                         splashColor: Colors.orange,
                         textColor: Colors.black,
                         elevation: 8.0,
@@ -246,23 +238,23 @@ class HomeScreen extends StatelessWidget {
                               style: GoogleFonts.viga(
                                   fontSize: 25,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.w900,
+                                  fontWeight: FontWeight.bold,
                                   shadows: [
                                     Shadow(
                                         // bottomLeft
-                                        offset: Offset(-0.5, -0.5),
+                                        offset: Offset(-0.3, -0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // bottomRight
-                                        offset: Offset(0.5, -0.5),
+                                        offset: Offset(0.3, -0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // topRight
-                                        offset: Offset(0.5, 1),
+                                        offset: Offset(0.3, 0.3),
                                         color: Colors.black),
                                     Shadow(
                                         // topLeft
-                                        offset: Offset(-0.5, 0.5),
+                                        offset: Offset(-0.3, 0.3),
                                         color: Colors.black),
                                   ]),
                             ),

@@ -1,28 +1,28 @@
-import 'package:daily_note/Screens/Notes/inherited_widgets.dart';
+import 'package:daily_note/Screens/Blogs/inherited_widgets.dart';
 import 'package:daily_note/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-enum NoteMode { Editing, Adding }
+enum BlogMode { Editing, Adding }
 
-class AddNotes extends StatefulWidget {
-  final NoteMode noteMode;
+class AddBlogs extends StatefulWidget {
+  final BlogMode noteMode;
   final index;
-  AddNotes(this.noteMode, this.index);
+  AddBlogs(this.noteMode, this.index);
 
   @override
-  _AddNotesState createState() => _AddNotesState();
+  _AddBlogsState createState() => _AddBlogsState();
 }
 
-class _AddNotesState extends State<AddNotes> {
+class _AddBlogsState extends State<AddBlogs> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _textController = TextEditingController();
 
-  List<Map<String, String>> get _notes => NoteInheritedWidget.of(context).notes;
+  List<Map<String, String>> get _notes => BlogInheritedWidget.of(context).notes;
 
   @override
   void didChangeDependencies() {
-    if (widget.noteMode == NoteMode.Editing) {
+    if (widget.noteMode == BlogMode.Editing) {
       _titleController.text = _notes[widget.index]['title'];
       _textController.text = _notes[widget.index]['text'];
     }
@@ -35,21 +35,21 @@ class _AddNotesState extends State<AddNotes> {
       backgroundColor: kPrimaryLightColor,
       appBar: AppBar(
         title: Text(
-          widget.noteMode == NoteMode.Adding ? 'Add Note' : 'Edit Note',
+          widget.noteMode == BlogMode.Adding ? 'Add Blog' : 'Edit Blog',
           style: GoogleFonts.lato(fontWeight: FontWeight.bold),
         ),
         backgroundColor: kPrimaryColor,
-        actions: [
-          MaterialButton(
-            onPressed: () {
+        actions: <Widget>[
+          GestureDetector(
+            onTap: () {
               final title = _titleController.text;
               final text = _textController.text;
-              if (widget?.noteMode == NoteMode.Adding) {
+              if (widget?.noteMode == BlogMode.Adding) {
                 _notes.add({
                   'title': title,
                   'text': text,
                 });
-              } else if (widget?.noteMode == NoteMode.Editing) {
+              } else if (widget?.noteMode == BlogMode.Editing) {
                 _notes[widget.index] = {
                   'title': title,
                   'text': text,
@@ -62,8 +62,8 @@ class _AddNotesState extends State<AddNotes> {
               color: Colors.white,
             ),
           ),
-          widget.noteMode == NoteMode.Editing
-              ? _NoteButton(() {
+          widget.noteMode == BlogMode.Editing
+              ? _BlogButton(() {
                   _notes.removeAt(widget.index);
                   Navigator.pop(context);
                 })
@@ -76,7 +76,7 @@ class _AddNotesState extends State<AddNotes> {
           children: [
             TextField(
               controller: _titleController,
-              decoration: InputDecoration(hintText: 'Title'),
+              decoration: InputDecoration(hintText: 'Blog Title'),
               style:
                   GoogleFonts.lato(fontWeight: FontWeight.bold, fontSize: 25),
             ),
@@ -98,9 +98,9 @@ class _AddNotesState extends State<AddNotes> {
   }
 }
 
-class _NoteButton extends StatelessWidget {
+class _BlogButton extends StatelessWidget {
   final Function _onPressed;
-  _NoteButton(this._onPressed);
+  _BlogButton(this._onPressed);
   @override
   Widget build(BuildContext context) {
     return Container(

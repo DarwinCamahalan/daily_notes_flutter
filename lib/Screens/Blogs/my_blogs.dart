@@ -1,25 +1,25 @@
 import 'package:daily_note/Screens/Home/components/body.dart';
-import 'package:daily_note/Screens/Notes/add_notes.dart';
-import 'package:daily_note/Screens/Notes/inherited_widgets.dart';
+import 'package:daily_note/Screens/Blogs/add_blogs.dart';
+import 'package:daily_note/Screens/Blogs/inherited_widgets.dart';
 import 'package:daily_note/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(MyNotes());
+void main() => runApp(MyBlogs());
 
-class MyNotes extends StatefulWidget {
+class MyBlogs extends StatefulWidget {
   @override
-  _MyNotesState createState() => _MyNotesState();
+  _MyBlogState createState() => _MyBlogState();
 }
 
-class _MyNotesState extends State<MyNotes> {
-  List<Map<String, String>> get _notes => NoteInheritedWidget.of(context).notes;
+class _MyBlogState extends State<MyBlogs> {
+  List<Map<String, String>> get _notes => BlogInheritedWidget.of(context).notes;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'My Notes',
+      title: 'Personal Blog',
       home: Scaffold(
         backgroundColor: kPrimaryLightColor,
         drawer: new Drawer(
@@ -28,7 +28,7 @@ class _MyNotesState extends State<MyNotes> {
         appBar: AppBar(
           backgroundColor: kPrimaryColor,
           title: Text(
-            'My Notes',
+            'Personal Blog',
             style: GoogleFonts.lato(fontWeight: FontWeight.bold),
           ),
         ),
@@ -49,7 +49,7 @@ class _MyNotesState extends State<MyNotes> {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              AddNotes(NoteMode.Editing, index)));
+                              AddBlogs(BlogMode.Editing, index)));
                   setState(() {});
                 },
                 child: Padding(
@@ -69,11 +69,11 @@ class _MyNotesState extends State<MyNotes> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            _NoteTitle(_notes[index]['title']),
+                            _BlogTitle(_notes[index]['title']),
                             Container(
                               height: 8,
                             ),
-                            _NoteText(_notes[index]['text']),
+                            _BlogText(_notes[index]['text']),
                             Container(
                               height: 8,
                             ),
@@ -94,11 +94,12 @@ class _MyNotesState extends State<MyNotes> {
             await Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => AddNotes(NoteMode.Adding, null)));
+                    builder: (context) => AddBlogs(BlogMode.Adding, null)));
             setState(() {});
           },
           child: Icon(Icons.add),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         bottomNavigationBar: BottomAppBar(
           child: Row(
             children: [
@@ -138,34 +139,30 @@ class _MyNotesState extends State<MyNotes> {
   }
 }
 
-class _NoteTitle extends StatelessWidget {
+class _BlogTitle extends StatelessWidget {
   final String _title;
-  _NoteTitle(this._title);
+  _BlogTitle(this._title);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       _title,
-      style: GoogleFonts.lato(fontSize: 25, fontWeight: FontWeight.bold),
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
+      style: GoogleFonts.lato(fontSize: 20, fontWeight: FontWeight.bold),
     );
   }
 }
 
-class _NoteText extends StatelessWidget {
+class _BlogText extends StatelessWidget {
   final String _text;
-  _NoteText(this._text);
+  _BlogText(this._text);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       _text,
       style: GoogleFonts.lato(
-        color: Colors.grey.shade900,
+        color: Colors.black,
       ),
-      maxLines: 6,
-      overflow: TextOverflow.ellipsis,
     );
   }
 }
