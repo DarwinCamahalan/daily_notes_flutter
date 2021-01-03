@@ -34,14 +34,16 @@ class _AddNotesState extends State<AddNotes> {
     return Scaffold(
       backgroundColor: kPrimaryLightColor,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           widget.noteMode == NoteMode.Adding ? 'Add Note' : 'Edit Note',
-          style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+          style: GoogleFonts.lato(
+              fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: kPrimaryColor,
         actions: [
-          MaterialButton(
-            onPressed: () {
+          GestureDetector(
+            onTap: () {
               final title = _titleController.text;
               final text = _textController.text;
               if (widget?.noteMode == NoteMode.Adding) {
@@ -67,31 +69,51 @@ class _AddNotesState extends State<AddNotes> {
                   _notes.removeAt(widget.index);
                   Navigator.pop(context);
                 })
-              : Container(),
+              : Container(
+                  width: 30,
+                ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _titleController,
-              decoration: InputDecoration(hintText: 'Title'),
-              style:
-                  GoogleFonts.lato(fontWeight: FontWeight.bold, fontSize: 25),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              "assets/images/add_note_background.png",
             ),
-            Expanded(
-              child: TextField(
-                controller: _textController,
-                expands: true,
-                maxLines: null,
-                decoration: InputDecoration(
-                    disabledBorder: InputBorder.none,
-                    border: InputBorder.none,
-                    hintText: 'Add Text Here...'),
-              ),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                TextField(
+                  textAlign: TextAlign.center,
+                  controller: _titleController,
+                  decoration: InputDecoration(hintText: 'Note Title'),
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold, fontSize: 25),
+                ),
+                Container(
+                  height: 10,
+                ),
+                Expanded(
+                  child: TextField(
+                    controller: _textController,
+                    expands: true,
+                    maxLines: null,
+                    decoration: InputDecoration(
+                        disabledBorder: InputBorder.none,
+                        border: InputBorder.none,
+                        hintText: 'Add Text Here...'),
+                    style: GoogleFonts.poppins(color: Colors.black),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

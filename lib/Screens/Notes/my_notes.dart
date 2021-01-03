@@ -19,6 +19,10 @@ class _MyNotesState extends State<MyNotes> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: Colors.orange[100],
+      ),
       title: 'My Notes',
       home: Scaffold(
         backgroundColor: kPrimaryLightColor,
@@ -26,19 +30,21 @@ class _MyNotesState extends State<MyNotes> {
             child: Container(
                 color: Colors.orangeAccent[100], child: new ListView())),
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: kPrimaryColor,
           title: Text(
             'My Notes',
-            style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+            style: GoogleFonts.lato(
+                fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                "assets/images/background.png",
+                "assets/images/note_background.png",
               ),
-              fit: BoxFit.contain,
+              fit: BoxFit.fill,
             ),
           ),
           child: ListView.builder(
@@ -58,14 +64,14 @@ class _MyNotesState extends State<MyNotes> {
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("assets/images/blog.png"),
-                          fit: BoxFit.contain,
+                          image: AssetImage("assets/images/paper1.png"),
+                          fit: BoxFit.fill,
                           alignment: Alignment.topCenter,
                         ),
                       ),
                       child: Padding(
-                        padding:
-                            const EdgeInsets.only(top: 13, right: 10, left: 10),
+                        padding: const EdgeInsets.only(
+                            top: 20, bottom: 20, right: 10, left: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -146,7 +152,7 @@ class _NoteTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _title,
-      style: GoogleFonts.lato(fontSize: 25, fontWeight: FontWeight.bold),
+      style: GoogleFonts.poppins(fontSize: 25, fontWeight: FontWeight.bold),
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
     );
@@ -161,7 +167,7 @@ class _NoteText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _text,
-      style: GoogleFonts.lato(
+      style: GoogleFonts.poppins(
         color: Colors.grey.shade900,
       ),
       maxLines: 6,

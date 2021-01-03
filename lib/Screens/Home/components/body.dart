@@ -1,5 +1,6 @@
 import 'package:daily_note/Screens/Blogs/main.dart';
 import 'package:daily_note/Screens/Notes/main.dart';
+import 'package:daily_note/Screens/Webster/webster_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:daily_note/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.orange[100],
+        scaffoldBackgroundColor: Colors.orange[50],
       ),
       title: 'Dashboard',
       home: Scaffold(
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
               image: AssetImage(
                 "assets/images/background.png",
               ),
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
             ),
           ),
           child: Row(
@@ -210,7 +211,16 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Webster();
+                              },
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),

@@ -19,6 +19,10 @@ class _MyBlogState extends State<MyBlogs> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: Colors.orange[100],
+      ),
       title: 'Personal Blog',
       home: Scaffold(
         backgroundColor: kPrimaryLightColor,
@@ -26,19 +30,21 @@ class _MyBlogState extends State<MyBlogs> {
             child: Container(
                 color: Colors.orangeAccent[100], child: new ListView())),
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: kPrimaryColor,
           title: Text(
             'Personal Blog',
-            style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+            style: GoogleFonts.lato(
+                fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                "assets/images/background.png",
+                "assets/images/blog_background.png",
               ),
-              fit: BoxFit.contain,
+              fit: BoxFit.fill,
             ),
           ),
           child: ListView.builder(
@@ -58,14 +64,14 @@ class _MyBlogState extends State<MyBlogs> {
                     child: Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("assets/images/blog.png"),
-                          fit: BoxFit.contain,
+                          image: AssetImage("assets/images/paper1.png"),
+                          fit: BoxFit.fill,
                           alignment: Alignment.topCenter,
                         ),
                       ),
                       child: Padding(
-                        padding:
-                            const EdgeInsets.only(top: 13, right: 10, left: 10),
+                        padding: const EdgeInsets.only(
+                            top: 20, bottom: 20, right: 10, left: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -147,7 +153,7 @@ class _BlogTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _title,
-      style: GoogleFonts.lato(fontSize: 20, fontWeight: FontWeight.bold),
+      style: GoogleFonts.poppins(fontSize: 25, fontWeight: FontWeight.bold),
     );
   }
 }
@@ -160,7 +166,7 @@ class _BlogText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _text,
-      style: GoogleFonts.lato(
+      style: GoogleFonts.poppins(
         color: Colors.black,
       ),
     );
