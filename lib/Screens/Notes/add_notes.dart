@@ -34,7 +34,6 @@ class _AddNotesState extends State<AddNotes> {
     return Scaffold(
       backgroundColor: kPrimaryLightColor,
       appBar: AppBar(
-        centerTitle: true,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           widget.noteMode == NoteMode.Adding ? 'Add Note' : 'Edit Note',
@@ -91,6 +90,7 @@ class _AddNotesState extends State<AddNotes> {
             child: Column(
               children: [
                 TextField(
+                  textCapitalization: TextCapitalization.words,
                   textAlign: TextAlign.center,
                   controller: _titleController,
                   decoration: InputDecoration(hintText: 'Note Title'),
@@ -102,6 +102,7 @@ class _AddNotesState extends State<AddNotes> {
                 ),
                 Expanded(
                   child: TextField(
+                    textCapitalization: TextCapitalization.sentences,
                     controller: _textController,
                     expands: true,
                     maxLines: null,

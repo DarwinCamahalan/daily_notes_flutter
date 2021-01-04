@@ -85,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     borderRadius: BorderRadius.circular(24.0),
                   ),
                   child: TextFormField(
+                    textCapitalization: TextCapitalization.words,
                     onChanged: (String text) {
                       if (_debounce?.isActive ?? false) _debounce.cancel();
                       _debounce = Timer(const Duration(milliseconds: 1000), () {
@@ -156,10 +157,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                   backgroundImage: NetworkImage(snapshot
                                       .data["definitions"][index]["image_url"]),
                                 ),
-                          title: Text(_controller.text.trim() +
-                              "(" +
-                              snapshot.data["definitions"][index]["type"] +
-                              ")"),
+                          title: Text(
+                              _controller.text.trim() +
+                                  "(" +
+                                  snapshot.data["definitions"][index]["type"] +
+                                  ")",
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
+                              )),
                         ),
                       ),
                       Padding(

@@ -17,13 +17,7 @@ $ flutter pub get
 $ flutter pub run flutter_launcher_icons:main
 
 
-
-
-
-
-
-
-
+___________________________________________________________________________________________
 
 SDK FIX:
 
@@ -32,7 +26,7 @@ Configure > SDK Manager > in the top is the directory
 flutter config --android-sdk <path>
 
 
-
+___________________________________________________________________________________________
 
 FOR INTEGRATION TEST ERRORS:
 
@@ -43,16 +37,7 @@ flutter pub get
 flutter packages get
 
 
-
-
-
-
-
-
-
-
-
-
+___________________________________________________________________________________________
 
 FOR FLUTTER DOCTOR FLUTTER AND DART NOT FOUND ERRORS:
 
@@ -69,16 +54,28 @@ flutter channel beta
 flutter upgrade
 
 
-
-
-
-
-
-
-
+___________________________________________________________________________________________
 
 LICENSE ERROR:
 
 flutter doctor --android-licenses
 
 -Y
+
+
+___________________________________________________________________________________________
+
+BUILDING APK ANDROID:
+
+flutter clean 
+
+flutter build apk --release
+
+
+___________________________________________________________________________________________
+
+BUILDING APK FOR IOS:
+
+flutter clean 
+
+flutter build ios --release

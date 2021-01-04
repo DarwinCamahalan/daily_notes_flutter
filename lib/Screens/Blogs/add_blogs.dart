@@ -34,7 +34,6 @@ class _AddBlogsState extends State<AddBlogs> {
     return Scaffold(
       backgroundColor: kPrimaryLightColor,
       appBar: AppBar(
-        centerTitle: true,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
           widget.noteMode == BlogMode.Adding ? 'Add Blog' : 'Edit Blog',
@@ -89,6 +88,7 @@ class _AddBlogsState extends State<AddBlogs> {
           child: Column(
             children: [
               TextField(
+                textCapitalization: TextCapitalization.words,
                 textAlign: TextAlign.center,
                 controller: _titleController,
                 decoration: InputDecoration(hintText: 'Blog Title'),
@@ -100,6 +100,7 @@ class _AddBlogsState extends State<AddBlogs> {
               ),
               Expanded(
                 child: TextField(
+                  textCapitalization: TextCapitalization.sentences,
                   controller: _textController,
                   expands: true,
                   maxLines: null,
