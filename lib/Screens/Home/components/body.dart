@@ -1,5 +1,7 @@
+import 'package:daily_note/Screens/About/main.dart';
 import 'package:daily_note/Screens/Blogs/main.dart';
-import 'package:daily_note/Screens/Business/business_screen.dart';
+import 'package:daily_note/Screens/Business/main.dart';
+import 'package:daily_note/Screens/Login/login_screen.dart';
 import 'package:daily_note/Screens/Notes/main.dart';
 import 'package:daily_note/Screens/Webster/webster_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,81 @@ class HomeScreen extends StatelessWidget {
       home: Scaffold(
         drawer: new Drawer(
             child: Container(
-                color: Colors.orangeAccent[100], child: new ListView())),
+                color: kPrimaryLightColor,
+                child: new ListView(
+                  children: [
+                    new Container(
+                      child: new DrawerHeader(
+                          child: new CircleAvatar(
+                        radius: 30.0,
+                        child: Image.asset('assets/images/profile.png'),
+                        backgroundColor: Colors.transparent,
+                      )),
+                    ),
+                    Text(
+                      'Admin',
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold, fontSize: 20),
+                      textAlign: TextAlign.center,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 50, left: 10),
+                      child: Column(children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return AboutUs();
+                                },
+                              ),
+                            );
+                          },
+                          child: Row(
+                            children: [
+                              Icon(Icons.info_outline_rounded),
+                              Container(
+                                width: 85,
+                              ),
+                              Text('About Us',
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15)),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: 340,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return LoginScreen();
+                                },
+                              ),
+                            );
+                          },
+                          child: Row(
+                            children: [
+                              Icon(Icons.exit_to_app_sharp),
+                              Container(
+                                width: 95,
+                              ),
+                              Text('Logout',
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15)),
+                            ],
+                          ),
+                        ),
+                      ]),
+                    )
+                  ],
+                ))),
         appBar: AppBar(
           centerTitle: true,
           iconTheme: IconThemeData(color: Colors.white),

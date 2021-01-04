@@ -1,4 +1,3 @@
-import 'package:daily_note/Screens/Blogs/inherited_widgets.dart';
 import 'package:daily_note/Screens/Blogs/note_provider.dart';
 import 'package:daily_note/constants.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +17,6 @@ class AddBlogs extends StatefulWidget {
 class _AddBlogsState extends State<AddBlogs> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _textController = TextEditingController();
-
-  List<Map<String, String>> get _notes => BlogInheritedWidget.of(context).notes;
 
   @override
   void didChangeDependencies() {

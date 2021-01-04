@@ -1,4 +1,3 @@
-import 'package:daily_note/Screens/Notes/inherited_widgets.dart';
 import 'package:daily_note/Screens/Notes/note_provider.dart';
 import 'package:daily_note/constants.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +17,6 @@ class AddNotes extends StatefulWidget {
 class _AddNotesState extends State<AddNotes> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _textController = TextEditingController();
-
-  List<Map<String, String>> get _notes => NoteInheritedWidget.of(context).notes;
 
   @override
   void didChangeDependencies() {

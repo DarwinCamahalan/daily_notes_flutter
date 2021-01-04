@@ -69,7 +69,7 @@ class _MyBlogState extends State<MyBlogs> {
                           child: Container(
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage("assets/images/paper2.jpg"),
+                                image: AssetImage("assets/images/myblogs.jpg"),
                                 fit: BoxFit.fill,
                                 alignment: Alignment.topCenter,
                               ),
