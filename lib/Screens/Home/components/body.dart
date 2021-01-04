@@ -1,4 +1,5 @@
 import 'package:daily_note/Screens/Blogs/main.dart';
+import 'package:daily_note/Screens/Business/business_screen.dart';
 import 'package:daily_note/Screens/Notes/main.dart';
 import 'package:daily_note/Screens/Webster/webster_screen.dart';
 import 'package:flutter/material.dart';
@@ -271,7 +272,16 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return Business();
+                              },
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
