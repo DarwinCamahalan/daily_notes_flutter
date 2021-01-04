@@ -1,4 +1,5 @@
 import 'package:daily_note/Screens/Notes/inherited_widgets.dart';
+import 'package:daily_note/Screens/Notes/note_provider.dart';
 import 'package:daily_note/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,8 +8,8 @@ enum NoteMode { Editing, Adding }
 
 class AddNotes extends StatefulWidget {
   final NoteMode noteMode;
-  final index;
-  AddNotes(this.noteMode, this.index);
+  final Map<String, dynamic> note;
+  AddNotes(this.noteMode, this.note);
 
   @override
   _AddNotesState createState() => _AddNotesState();
@@ -23,8 +24,8 @@ class _AddNotesState extends State<AddNotes> {
   @override
   void didChangeDependencies() {
     if (widget.noteMode == NoteMode.Editing) {
-      _titleController.text = _notes[widget.index]['title'];
-      _textController.text = _notes[widget.index]['text'];
+      _titleController.text = widget.note['title'];
+      _textController.text = widget.note['text'];
     }
 
     super.didChangeDependencies();
@@ -47,15 +48,16 @@ class _AddNotesState extends State<AddNotes> {
               final title = _titleController.text;
               final text = _textController.text;
               if (widget?.noteMode == NoteMode.Adding) {
-                _notes.add({
+                NoteProvider.insertNote({
                   'title': title,
                   'text': text,
                 });
               } else if (widget?.noteMode == NoteMode.Editing) {
-                _notes[widget.index] = {
-                  'title': title,
-                  'text': text,
-                };
+                NoteProvider.updateNote({
+                  'id': widget.note['id'],
+                  'title': _titleController.text,
+                  'text': _textController.text,
+                });
               }
               Navigator.pop(context);
             },
@@ -65,8 +67,8 @@ class _AddNotesState extends State<AddNotes> {
             ),
           ),
           widget.noteMode == NoteMode.Editing
-              ? _NoteButton(() {
-                  _notes.removeAt(widget.index);
+              ? _NoteButton(() async {
+                  await NoteProvider.deleteNote(widget.note['id']);
                   Navigator.pop(context);
                 })
               : Container(

@@ -1,4 +1,5 @@
 import 'package:daily_note/Screens/Blogs/inherited_widgets.dart';
+import 'package:daily_note/Screens/Blogs/note_provider.dart';
 import 'package:daily_note/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,9 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 enum BlogMode { Editing, Adding }
 
 class AddBlogs extends StatefulWidget {
-  final BlogMode noteMode;
-  final index;
-  AddBlogs(this.noteMode, this.index);
+  final BlogMode blogMode;
+  final Map<String, dynamic> blog;
+  AddBlogs(this.blogMode, this.blog);
 
   @override
   _AddBlogsState createState() => _AddBlogsState();
@@ -22,9 +23,9 @@ class _AddBlogsState extends State<AddBlogs> {
 
   @override
   void didChangeDependencies() {
-    if (widget.noteMode == BlogMode.Editing) {
-      _titleController.text = _notes[widget.index]['title'];
-      _textController.text = _notes[widget.index]['text'];
+    if (widget.blogMode == BlogMode.Editing) {
+      _titleController.text = widget.blog['title'];
+      _textController.text = widget.blog['text'];
     }
 
     super.didChangeDependencies();
@@ -36,7 +37,7 @@ class _AddBlogsState extends State<AddBlogs> {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
         title: Text(
-          widget.noteMode == BlogMode.Adding ? 'Add Blog' : 'Edit Blog',
+          widget.blogMode == BlogMode.Adding ? 'Add Blog' : 'Edit Blog',
           style: GoogleFonts.lato(
               fontWeight: FontWeight.bold, color: Colors.white),
         ),
@@ -46,16 +47,17 @@ class _AddBlogsState extends State<AddBlogs> {
             onTap: () {
               final title = _titleController.text;
               final text = _textController.text;
-              if (widget?.noteMode == BlogMode.Adding) {
-                _notes.add({
+              if (widget?.blogMode == BlogMode.Adding) {
+                BlogProvider.insertBlog({
                   'title': title,
                   'text': text,
                 });
-              } else if (widget?.noteMode == BlogMode.Editing) {
-                _notes[widget.index] = {
-                  'title': title,
-                  'text': text,
-                };
+              } else if (widget?.blogMode == BlogMode.Editing) {
+                BlogProvider.updateBlog({
+                  'id': widget.blog['id'],
+                  'title': _titleController.text,
+                  'text': _textController.text,
+                });
               }
               Navigator.pop(context);
             },
@@ -64,9 +66,9 @@ class _AddBlogsState extends State<AddBlogs> {
               color: Colors.white,
             ),
           ),
-          widget.noteMode == BlogMode.Editing
-              ? _BlogButton(() {
-                  _notes.removeAt(widget.index);
+          widget.blogMode == BlogMode.Editing
+              ? _BlogButton(() async {
+                  await BlogProvider.deleteBlog(widget.blog['id']);
                   Navigator.pop(context);
                 })
               : Container(
